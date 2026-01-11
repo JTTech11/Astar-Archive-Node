@@ -20,15 +20,16 @@ sudo chown $USER:$USER /srv/astar
 cd /srv/astar
 ```
 
-Edit .env file and compose.yml file
+Edit .env and compose.yml files\
+Rename node in .env
 
 ### Create a Docker network for Astar
 `docker network create astar`
 
-### Some basic docker commands\
+### Some basic docker commands
 check compose.yml for any errors\
 `docker compose config`\
 If everything looks good, start Astar container\
 `docker compose up -d`\
 check logs\
-`docker logs -f --tail 50 -t astar-container`\
+`docker logs -f --tail 50 -t astar-container`
