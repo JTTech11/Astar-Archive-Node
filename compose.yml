@@ -1,0 +1,29 @@
+services:
+  astar-node:
+    image: staketechnologies/astar-collator:latest
+    container_name: astar-container
+    # Replace with specific IDs if not using a .env file
+    # Format: "uid:gid"
+    user: "${ASTAR_UID}:${ASTAR_GID}"
+    ports:
+      - "30333:30333"
+      - "9944:9944"
+    volumes:
+      - "/var/lib/astar/:/data"
+    command:
+      - astar-collator
+      - --pruning=archive
+      - --rpc-cors=all
+      - --name=${NODE_NAME}
+      - --chain=astar
+      - --base-path=/data
+      - --rpc-external
+      - --rpc-methods=Safe
+      - --rpc-max-request-size=1
+      - --rpc-max-response-size=1
+      - "--telemetry-url=wss://telemetry.polkadot.io/submit/ 0"
+    restart: unless-stopped
+
+networks:
+  astar:
+    external: true
