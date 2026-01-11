@@ -1,7 +1,7 @@
-# Astar-Archive-Node
+# Astar Archive Node
 ## How to create an Archive Node with Docker compose.yml
 
-### Astar Archive Node storage
+### Archive Node storage
 
 ```
 sudo mkdir /var/lib/astar
@@ -25,9 +25,10 @@ Edit .env file and compose.yml file
 ### Create a Docker network for Astar
 `docker network create astar`
 
-check config
-`docker compose config`
-If everything is good, start Astar container
-`docker compose up -d`
-check logs
-`docker logs -f --tail 50 -t astar-container`
+### Some basic docker commands\
+check compose.yml for any errors\
+`docker compose config`\
+If everything looks good, start Astar container\
+`docker compose up -d`\
+check logs\
+`docker logs -f --tail 50 -t astar-container`\
